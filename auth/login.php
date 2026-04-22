@@ -47,36 +47,96 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 <html>
 <head>
     <title>Login</title>
+
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <style>
+        body, html {
+            height: 100%;
+            margin: 0;
+            font-family: Arial, sans-serif;
+        }
+
+        
+        .bg-video {
+            position: fixed;
+            right: 0;
+            bottom: 0;
+            min-width: 100%;
+            min-height: 100%;
+            object-fit: cover;
+            z-index: -2;
+        }
+
+        
+        .overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.5);
+            z-index: -1;
+        }
+
+        
+        .login-card {
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            color: white;
+            border-radius: 10px;
+            padding: 30px;
+        }
+
+        .form-control {
+            background: rgba(255,255,255,0.8);
+        }
+    </style>
 </head>
-<body class="bg-light">
 
-<div class="container mt-5">
-<div class="row justify-content-center">
-<div class="col-md-5">
+<body>
 
-<div class="card p-4">
-<h3 class="text-center">Login</h3>
 
-<?php if ($message): ?>
-<div class="alert alert-danger"><?= $message ?></div>
-<?php endif; ?>
+<video autoplay muted loop class="bg-video">
+    <source src="../assets/videos/bg.mp4" type="video/mp4">
+</video>
 
-<form method="POST">
-<input class="form-control mb-2" name="email" type="email" placeholder="Email" required>
-<input class="form-control mb-2" name="password" type="password" placeholder="Password" required>
 
-<button class="btn btn-primary w-100">Login</button>
-</form>
+<div class="overlay"></div>
 
-<p class="text-center mt-2">
-No account? <a href="register.php">Register</a>
-</p>
+<div class="container h-100">
+    <div class="row h-100 justify-content-center align-items-center">
 
-</div>
+        <div class="col-md-4">
 
-</div>
-</div>
+            <div class="login-card text-center">
+
+                <h2 class="mb-3">RouteScape</h2>
+                <p class="mb-4">Plan your perfect trip</p>
+
+                <?php if ($message): ?>
+                    <div class="alert alert-danger"><?= $message ?></div>
+                <?php endif; ?>
+
+                <form method="POST">
+
+                    <input class="form-control mb-3" name="email" type="email" placeholder="Email" required>
+
+                    <input class="form-control mb-3" name="password" type="password" placeholder="Password" required>
+
+                    <button class="btn btn-primary w-100">Login</button>
+
+                </form>
+
+                <p class="mt-3">
+                    No account? <a href="register.php" class="text-white">Register</a>
+                </p>
+
+            </div>
+
+        </div>
+
+    </div>
 </div>
 
 </body>

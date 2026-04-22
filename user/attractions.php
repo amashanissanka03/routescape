@@ -125,7 +125,7 @@ if ($category != "") {
                     <?php echo $row['description']; ?>
                 </p>
 
-                <!-- ✅ Button BELOW description -->
+                
                 <div class="mt-auto">
 
     <button class="btn btn-info w-100 mb-2"
@@ -149,7 +149,7 @@ if ($category != "") {
 
     </div>
 
-    <!-- ✅ MODAL MUST BE INSIDE LOOP -->
+    
     <div class="modal fade" id="modal<?= $row['id'] ?>" tabindex="-1">
       <div class="modal-dialog">
         <div class="modal-content">

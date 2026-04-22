@@ -16,7 +16,7 @@ if (session_status() === PHP_SESSION_NONE) {
 
     <div class="collapse navbar-collapse" id="navbarNav">
 
-        <!-- LEFT SIDE LINKS -->
+        
         <?php if (isset($_SESSION["user_id"])): ?>
             <ul class="navbar-nav me-auto">
                 <?php if ($_SESSION["role"] == "admin"): ?>
@@ -42,7 +42,7 @@ if (session_status() === PHP_SESSION_NONE) {
             </ul>
         <?php endif; ?>
 
-        <!-- RIGHT SIDE USER INFO -->
+       
         <div class="ms-auto d-flex align-items-center">
 
             <?php if (isset($_SESSION["user_id"])): ?>

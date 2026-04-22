@@ -11,7 +11,7 @@ if (!isset($_SESSION["user_id"])) {
 $user_id = $_SESSION["user_id"];
 
 
-// ✅ DELETE LOGIC
+
 if (isset($_POST["delete_id"])) {
 
     $delete_id = $_POST["delete_id"];
@@ -58,7 +58,7 @@ $result = $stmt->get_result();
 
     <h3>My Trip Plans</h3>
 
-    <!-- ✅ FLASH MESSAGE -->
+    
     <?php if (isset($_SESSION["message"])): ?>
         <div class="alert alert-danger mt-3">
             <?php 
