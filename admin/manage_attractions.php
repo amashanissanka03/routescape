@@ -2,7 +2,7 @@
 session_start();
 require_once "../config/db.php";
 
-// allow only admin
+
 if (!isset($_SESSION["user_id"]) || $_SESSION["role"] != "admin") {
     header("Location: ../auth/login.php");
     exit();
@@ -10,16 +10,16 @@ if (!isset($_SESSION["user_id"]) || $_SESSION["role"] != "admin") {
 
 $edit_data = null;
 
-// DELETE attraction
+
 if (isset($_POST["delete_id"])) {
     $id = $_POST["delete_id"];
 
-    // delete related trip rows first
+    
     $stmt = $conn->prepare("DELETE FROM trip_plan WHERE attraction_id = ?");
     $stmt->bind_param("i", $id);
     $stmt->execute();
 
-    // then delete attraction
+    
     $stmt = $conn->prepare("DELETE FROM attractions WHERE id = ?");
     $stmt->bind_param("i", $id);
     $stmt->execute();
@@ -28,7 +28,7 @@ if (isset($_POST["delete_id"])) {
     exit();
 }
 
-// LOAD attraction for editing
+
 if (isset($_GET["edit_id"])) {
     $id = $_GET["edit_id"];
 
@@ -38,7 +38,7 @@ if (isset($_GET["edit_id"])) {
     $edit_data = $stmt->get_result()->fetch_assoc();
 }
 
-// ADD or UPDATE attraction
+
 if (isset($_POST["name"])) {
     $name = trim($_POST["name"]);
     $category = trim($_POST["category"]);
@@ -49,7 +49,7 @@ if (isset($_POST["name"])) {
     $longitude = trim($_POST["longitude"]);
 
     if (!empty($_POST["edit_id"])) {
-        // UPDATE existing row
+        
         $id = $_POST["edit_id"];
 
         $stmt = $conn->prepare("
@@ -60,7 +60,7 @@ if (isset($_POST["name"])) {
         $stmt->bind_param("sssssssi", $name, $category, $description, $details, $image, $latitude, $longitude, $id);
         $stmt->execute();
     } else {
-        // INSERT new row
+        
         $stmt = $conn->prepare("
             INSERT INTO attractions (name, category, description, details, image, latitude, longitude)
             VALUES (?, ?, ?, ?, ?, ?, ?)
@@ -73,7 +73,7 @@ if (isset($_POST["name"])) {
     exit();
 }
 
-// fetch attractions list
+
 $result = $conn->query("SELECT * FROM attractions ORDER BY id DESC");
 ?>
 
@@ -156,7 +156,7 @@ $result = $conn->query("SELECT * FROM attractions ORDER BY id DESC");
         <p class="mb-0">Add, edit, or remove attractions from the system.</p>
     </div>
 
-    <!-- FORM -->
+    
     <div class="form-box">
 
         <form method="POST">
@@ -203,7 +203,7 @@ $result = $conn->query("SELECT * FROM attractions ORDER BY id DESC");
 
     </div>
 
-    <!-- TABLE -->
+    
     <div class="table-box">
 
         <table class="table table-bordered table-hover mb-0">

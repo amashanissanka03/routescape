@@ -14,7 +14,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $message = "Passwords do not match!";
     } else {
 
-        // check duplicate
+        
         $check = $conn->prepare("SELECT id FROM users WHERE email = ? OR username = ?");
         $check->bind_param("ss", $email, $username);
         $check->execute();

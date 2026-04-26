@@ -2,7 +2,7 @@
 session_start();
 require_once "../config/db.php";
 
-// protect page
+
 if (!isset($_SESSION["user_id"])) {
     header("Location: ../auth/login.php");
     exit();
@@ -31,7 +31,7 @@ if (isset($_POST["delete_id"])) {
 }
 
 
-// get user trips with attraction details
+
 $stmt = $conn->prepare("
     SELECT tp.id, a.name, a.image
     FROM trip_plan tp

@@ -2,7 +2,7 @@
 session_start();
 require_once "../config/db.php";
 
-// protect page
+
 if (!isset($_SESSION["user_id"])) {
     header("Location: ../auth/login.php");
     exit();
@@ -10,7 +10,7 @@ if (!isset($_SESSION["user_id"])) {
 
 $user_id = $_SESSION["user_id"];
 
-// get ONLY user's trip locations
+
 $stmt = $conn->prepare("
     SELECT a.name, a.latitude, a.longitude
     FROM trip_plan tp

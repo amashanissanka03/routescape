@@ -2,7 +2,7 @@
 session_start();
 require_once "../config/db.php";
 
-// protect page
+
 if (!isset($_SESSION["user_id"])) {
     header("Location: ../auth/login.php");
     exit();
@@ -10,7 +10,7 @@ if (!isset($_SESSION["user_id"])) {
 
 $user_id = $_SESSION["user_id"];
 
-// handle add to trip
+
 if (isset($_POST["attraction_id"])) {
 
     $attraction_id = $_POST["attraction_id"];
@@ -25,11 +25,11 @@ if (isset($_POST["attraction_id"])) {
 
     $_SESSION["message"] = "Attraction added to your trip!";
 
-    // redirect to same page (prevents resubmission)
+    
     header("Location: attractions.php");
     exit();
 }
-// get all attractions
+
 $category = $_GET["category"] ?? "";
 
 if ($category != "") {

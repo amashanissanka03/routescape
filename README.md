@@ -29,5 +29,3 @@ RouteScape is a tourist planning web application developed using PHP, MySQL, Boo
 4. Open in browser:
    http://localhost/routescape
 
-## Notes
-This project was developed as part of an academic assignment to demonstrate full-stack web development skills.

@@ -2,7 +2,7 @@
 session_start();
 require_once "../config/db.php";
 
-// protect page
+
 if (!isset($_SESSION["user_id"])) {
     header("Location: ../auth/login.php");
     exit();
@@ -10,7 +10,7 @@ if (!isset($_SESSION["user_id"])) {
 
 $message = "";
 
-// when form is submitted
+
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
     $user_id = $_SESSION["user_id"];
@@ -30,7 +30,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $message = "Trip plan(s) saved successfully!";
 }
 
-// get attractions for dropdown
+
 $attractions = $conn->query("SELECT id, name FROM attractions");
 ?>
 

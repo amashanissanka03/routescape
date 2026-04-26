@@ -19,7 +19,7 @@ if (!isset($_SESSION["user_id"])) {
         font-family: Arial, sans-serif;
     }
 
-    /* 🎥 Background video */
+    
     .bg-video {
         position: fixed;
         right: 0;
@@ -30,7 +30,7 @@ if (!isset($_SESSION["user_id"])) {
         z-index: -2;
     }
 
-    /* 🌑 Overlay */
+    
     .overlay {
         position: fixed;
         top: 0;
@@ -41,7 +41,7 @@ if (!isset($_SESSION["user_id"])) {
         z-index: -1;
     }
 
-    /* 🧾 Glass cards */
+    
     .glass-card {
         background: rgba(255, 255, 255, 0.12);
         backdrop-filter: blur(10px);

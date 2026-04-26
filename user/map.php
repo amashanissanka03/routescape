@@ -2,13 +2,13 @@
 session_start();
 require_once "../config/db.php";
 
-// protect page
+
 if (!isset($_SESSION["user_id"])) {
     header("Location: ../auth/login.php");
     exit();
 }
 
-// get attractions
+
 $result = $conn->query("SELECT name, latitude, longitude FROM attractions WHERE latitude IS NOT NULL AND longitude IS NOT NULL");
 ?>
 
@@ -42,14 +42,14 @@ $result = $conn->query("SELECT name, latitude, longitude FROM attractions WHERE 
 
 </div>
 
-<!-- Leaflet JS -->
+
 <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
 
 <script>
-    // initialize map (centered on Sri Lanka)
+    
     var map = L.map('map').setView([7.8731, 80.7718], 8);
 
-    // load tiles
+    
     L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
         attribution: '&copy; OpenStreetMap contributors'
     }).addTo(map);
